@@ -1,37 +1,19 @@
 package font.alejandro.dam.m09.uf1.t02.model.view;
 
+import font.alejandro.dam.m09.uf1.t02.model.domain.Alumno;
+
 public class PedirDatosAlumnoView {
-    private String nombre;
-    private String NIF;
-    private float nota;
+    public Alumno pedirDatosAlumno() {
 
-    public PedirDatosAlumnoView() {
-        this.nombre = "";
-        this.NIF = "";
-        this.nota = 0;
-    }
+        Alumno alumno = null;
 
-    public String getNombre() {
-        return nombre;
-    }
+        UtilidadesPeticionView utilidadesPeticionView = new UtilidadesPeticionView();
+        String nombre = utilidadesPeticionView.getString("Introduce el nombre del alumno");
+        String NIF = utilidadesPeticionView.getString("Introduce el NIF del alumno");
+        float nota = utilidadesPeticionView.getFloat("Introduce la nota del alumno");
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
+        alumno = new Alumno(nombre, NIF, nota);
 
-    public String getNIF() {
-        return NIF;
-    }
-
-    public void setNIF(String NIF) {
-        this.NIF = NIF;
-    }
-
-    public float getNota() {
-        return nota;
-    }
-
-    public void setNota(float nota) {
-        this.nota = nota;
+        return alumno;
     }
 }
